@@ -53,10 +53,17 @@ const ActivityForm = ({ onActivityLogged }) => {
         onChange={handleIntensityChange}
         margin="normal"
       />
-      <Button variant="contained" color="primary" onClick={handleLogActivity}>
+
+      <div style={{marginTop:'20px'}}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleLogActivity}
+      >
         Log Activity
       </Button>
-    </div>
+      </div>
+    </div> 
   );
 };
 

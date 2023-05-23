@@ -50,9 +50,11 @@ const GoalSettingForm = ({ onGoalSet }) => {
         onChange={handleActiveMinutesGoalChange}
         margin="normal"
       />
+      <div style={{marginBottom:"20px", marginTop:"20px"}}>
       <Button variant="contained" color="primary" onClick={handleSetGoal}>
         Set Goal
       </Button>
+      </div>
     </div>
   );
 };

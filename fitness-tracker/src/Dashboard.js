@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Grid, Typography, Button, LinearProgress } from '@material-ui/core';
+import {
+  Paper,
+  Grid,
+  Typography,
+  Button,
+  LinearProgress
+} from '@material-ui/core';
+
 import StepCounter from './StepCounter';
 import CaloriesBurnedCalculator from './CaloriesBurnedCalculator';
 import ActivityForm from './ActivityForm';
@@ -10,6 +17,10 @@ import GoalSettingForm from './GoalSettingForm';
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
+  },
+  paper: {
+    padding: theme.spacing(2),
+    marginBottom:10,
   },
 }));
 
@@ -33,7 +44,7 @@ const Dashboard = () => {
   };
 
   const handleActivityLogged = (activity) => {
-    const caloriesBurned = activity.duration * activity.intensity; 
+    const caloriesBurned = activity.duration * activity.intensity; // Update with actual calorie calculation
     const loggedActivity = { ...activity, caloriesBurned };
     setActivityList([...activityList, loggedActivity]);
   };
@@ -99,8 +110,16 @@ const Dashboard = () => {
           </Paper>
         </Grid>
       </Grid>
+
+      <Paper className={classes.paper}>
+      <Typography variant="h6">Calories Calculator</Typography>
       <CaloriesBurnedCalculator onCaloriesBurned={handleCaloriesBurned} />
+      </Paper>
+
+      <Paper className={classes.paper}>
+      <Typography variant="h6">Activities</Typography>
       <ActivityForm onActivityLogged={handleActivityLogged} />
+      </Paper>
     </Paper>
   );
 };
